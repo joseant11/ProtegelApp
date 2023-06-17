@@ -33,12 +33,12 @@ class EmpoderateScreen extends StatefulWidget {
 
 class _EmpoderateScreenState extends State<EmpoderateScreen> {
   List<String> tipoAgresion = [
-    'Física',
-    'Sexual',
-    'Psicológica',
-    'Económica',
-    'Digital',
-    'Verbal',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
   ];
 
   var chat = ChatGPT(
@@ -54,57 +54,61 @@ class _EmpoderateScreenState extends State<EmpoderateScreen> {
   TextEditingController _textEditingController = TextEditingController();
 
   Widget _buildChatWidget() {
-    return Column(
-      children: [
-        Expanded(
-          child: ListView.builder(
-            itemCount: chatHistory.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(chatHistory[index]),
-              );
-            },
+    return Expanded(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: chatHistory.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(chatHistory[index]),
+                );
+              },
+            ),
           ),
-        ),
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          height: 60,
-          child: Row(
-            children: [
-              Expanded(
-                child: TextField(
-                  controller: _textEditingController,
-                  decoration: InputDecoration(
-                    hintText: 'Escribe tu mensaje aquí',
-                    border: OutlineInputBorder(
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            height: 60,
+            child: Row(
+              children: [
+                Flexible(
+                  child: TextField(
+                    controller: _textEditingController,
+                    decoration: InputDecoration(
+                      hintText: 'Escribe tu mensaje aquí',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(width: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    String message = _textEditingController.text.trim();
+                    chat.addMessage(message);
+                    chat.generateMessage().then((value) {
+                      setState(() {
+                        chatHistory.add(value);
+                      });
+                    });
+                    _textEditingController.clear();
+                  },
+                  child: Text('Enviar'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xff5C4DB1),
+                    shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(width: 10),
-              ElevatedButton(
-                onPressed: () {
-                  String message = _textEditingController.text.trim();
-                  chat.addMessage(message);
-                  chat.generateMessage().then((value) {
-                    setState(() {
-                      chatHistory.add(value);
-                    });
-                  });
-                  _textEditingController.clear();
-                },
-                child: Text('Enviar'),
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -112,7 +116,8 @@ class _EmpoderateScreenState extends State<EmpoderateScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Empoderate'),
+        backgroundColor: Color(0xff5C4DB1),
+        title: Text('Empoderate, Chat'),
       ),
       body: Column(
         children: [
@@ -120,7 +125,7 @@ class _EmpoderateScreenState extends State<EmpoderateScreen> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 10),
             child: Text(
-              'Selecciona el tipo de agresión',
+              'Ayudanos a ayudarte, Empoderate.',
               style: TextStyle(
                 color: Colors.black54,
                 fontSize: 20,
@@ -128,7 +133,7 @@ class _EmpoderateScreenState extends State<EmpoderateScreen> {
               ),
             ),
           ),
-          Expanded(
+          Flexible(
             child: ListView.builder(
               itemCount: tipoAgresion.length,
               itemBuilder: (context, index) {
