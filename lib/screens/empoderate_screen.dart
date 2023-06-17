@@ -33,10 +33,10 @@ class EmpoderateScreen extends StatefulWidget {
 
 class _EmpoderateScreenState extends State<EmpoderateScreen> {
   List<String> tipoAgresion = [
-    'Fisica',
+    'Física',
     'Sexual',
-    'Psicologica',
-    'Economica',
+    'Psicológica',
+    'Económica',
     'Digital',
     'Verbal',
   ];
@@ -120,7 +120,7 @@ class _EmpoderateScreenState extends State<EmpoderateScreen> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 10),
             child: Text(
-              'Selecciona el tipo de agresion',
+              'Selecciona el tipo de agresión',
               style: TextStyle(
                 color: Colors.black54,
                 fontSize: 20,
