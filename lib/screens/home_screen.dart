@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:protegelapp/screens/emergency_screen.dart';
 import 'package:protegelapp/screens/settings_screen.dart';
 import 'package:protegelapp/screens/empoderate_screen.dart';
+import 'package:protegelapp/screens/agresiones_screens/fisica_screen.dart';
 
 
 
@@ -80,7 +81,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                                    SizedBox(height: 20),
+                  SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -188,16 +189,18 @@ class HomeScreen extends StatelessWidget {
                 childAspectRatio: 1.8,
                 children: List.generate(tipoAgresion.length, (index) {
                   return InkWell(
-                    // onTap: () {
-                    //   switch (index) {
-                    //     case 0:
-                    //       Navigator.push(
-                    //         context,
-                    //         MaterialPageRoute(
-                    //           builder: (context) => FisicaScreen(),
-                    //         ),
-                    //       );
-                    //       break;
+                    onTap: () {
+                      switch (index) {
+                        case 0:
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => FisicaScreen(),
+                            ),
+                          );
+                          break;
+                         }
+                      },
                     //     case 1:
                     //       Navigator.push(
                     //         context,
@@ -238,8 +241,7 @@ class HomeScreen extends StatelessWidget {
                     //         ),
                     //       );
                     //       break;
-                    //   }
-                    // },
+
                     child: Container(
                       margin:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 15),
@@ -282,7 +284,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         Container(
-          height: 85,
+          height: MediaQuery.of(context).size.height/9.5,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(40),
