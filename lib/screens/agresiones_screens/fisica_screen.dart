@@ -117,33 +117,33 @@ class _FisicaScreenState extends State<FisicaScreen> {
                               controller: _pageController,
                               itemCount: _texts.length,
                               itemBuilder: (context, index) {
-return Center(
-  child: ListView(
-    shrinkWrap: true,
-    children: [
-      SizedBox(height: 16),
-      Text(
-        _titles[index],
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          color: Colors.white,
-        ),
-      ),
-      SizedBox(height: 30),
-      Text(
-        _texts[index],
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w500,
-          color: Colors.white,
-        ),
-      ),
-    ],
-  ),
-);
+                                return Center(
+                                  child: ListView(
+                                    shrinkWrap: true,
+                                    children: [
+                                      SizedBox(height: 16),
+                                      Text(
+                                        _titles[index],
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      SizedBox(height: 30),
+                                      Text(
+                                        _texts[index],
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
 
                               },
                               onPageChanged: (index) {
