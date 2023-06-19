@@ -6,8 +6,14 @@ import 'package:protegelapp/screens/agresiones_screens/fisica_screen.dart';
 
 
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   List tipoAgresion = [    'Fisica',    'Sexual',    'Psicologica',    'Economica',    'Digital',    'Verbal',  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
