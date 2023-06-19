@@ -65,20 +65,19 @@ class WelcomeScreen extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(height: 60),
+                SizedBox(height: 30),
                 Stack(
                   children: [
                     Align(
                       alignment: Alignment.bottomLeft,
                       child: SizedBox(
-                        width: 300,
-                        height: 300,
+                        width: MediaQuery.of(context).size.width/1.32,
                         child: Image.asset('images/banner.png'),
                       ),
                     ),
                     Positioned(
-                      bottom: 0,
-                      right: 0,
+                      bottom: -15,
+                      right: -15,
                       child: Padding(
                         padding: EdgeInsets.all(16.0),
                         child: ClipRRect(
