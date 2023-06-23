@@ -13,7 +13,50 @@ class ReportScreen extends StatefulWidget {
 }
 
 class _ReportScreenState extends State<ReportScreen> {
+  String _userName = '';
+  String _userId = '';
+  String _userEmail = '';
+  String _userPhone = '';
+
+  String? _nameError;
+  String? _idError;
+  String? _emailError;
+  String? _phoneError;
   String _incidentDescription = '';
+
+  bool validate() {
+    bool isValid = true;
+
+    // Validar el nombre
+    if (_userName.isEmpty) {
+      _nameError = 'El nombre es obligatorio';
+      isValid = false;
+    } else if (!RegExp(r'^[a-zA-Z ]+$').hasMatch(_userName)) {
+      _nameError = 'El nombre solo puede contener letras';
+      isValid = false;
+    }
+
+    // Validar la cédula
+    if (_userId.length != 11) {
+      _idError = 'La cédula debe tener 11 dígitos';
+      isValid = false;
+    }
+
+    // Validar el correo electrónico
+    if (!_userEmail.contains('@')) {
+      _emailError = 'Correo electrónico inválido';
+      isValid = false;
+    }
+
+    // Validar el número de teléfono
+    if (_userPhone.length != 10) {
+      _phoneError = 'El número de teléfono debe tener 10 dígitos';
+      isValid = false;
+    }
+
+    return isValid;
+  }
+
   String? _selectedAggression;
   final List<String> _aggressions = [
     'Agresión física',
@@ -113,6 +156,66 @@ class _ReportScreenState extends State<ReportScreen> {
         padding: EdgeInsets.all(16.0),
         child: ListView(
           children: <Widget>[
+            Text(
+              'Datos del usuario',
+              style: TextStyle(
+                color: Color(0xff5C4DB1),
+                fontSize: 18.0,
+              ),
+            ),
+            SizedBox(height: 16.0),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Nombre',
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xff5C4DB1)),
+                ),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xff5C4DB1))),
+                errorText: _nameError,
+              ),
+              onChanged: (value) => setState(() => _userName = value),
+            ),
+            SizedBox(height: 16.0),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Cédula',
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xff5C4DB1)),
+                ),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xff5C4DB1))),
+                errorText: _idError,
+              ),
+              onChanged: (value) => setState(() => _userId = value),
+            ),
+            SizedBox(height: 16.0),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Correo electrónico',
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xff5C4DB1)),
+                ),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xff5C4DB1))),
+                errorText: _emailError,
+              ),
+              onChanged: (value) => setState(() => _userEmail = value),
+            ),
+            SizedBox(height: 16.0),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Número de teléfono',
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xff5C4DB1)),
+                ),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xff5C4DB1))),
+                errorText: _phoneError,
+              ),
+              onChanged: (value) => setState(() => _userPhone = value),
+            ),
+            SizedBox(height: 16.0),
             TextField(
               maxLines: 5,
               decoration: InputDecoration(
@@ -120,8 +223,7 @@ class _ReportScreenState extends State<ReportScreen> {
                   borderSide: BorderSide(color: Color(0xff5C4DB1)),
                 ),
                 labelText: 'Descripción del incidente',
-                labelStyle:
-                    TextStyle(color: Color(0xff5C4DB1), fontSize: 18.0),
+                labelStyle: TextStyle(color: Color(0xff5C4DB1), fontSize: 18.0),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Color(0xff5C4DB1)),
                 ),
@@ -132,25 +234,25 @@ class _ReportScreenState extends State<ReportScreen> {
             InputDecorator(
               decoration: InputDecoration(
                 labelText: 'Tipo de agresión',
-                labelStyle:
-                    TextStyle(color: Color(0xff5C4DB1), fontSize: 18.0),
-                border:
-                    OutlineInputBorder(borderSide: BorderSide(color: Color(0xff5C4DB1))),
+                labelStyle: TextStyle(color: Color(0xff5C4DB1), fontSize: 18.0),
+                border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xff5C4DB1))),
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
               ),
               child: DropdownButtonHideUnderline(
                 child: DropdownButton<String>(
-                  value:_selectedAggression,
-                  onChanged:(String? newValue) {
+                  value: _selectedAggression,
+                  onChanged: (String? newValue) {
                     setState(() {
                       _selectedAggression = newValue;
                     });
                   },
-                  items:_aggressions.map<DropdownMenuItem<String>>((String value) {
+                  items: _aggressions
+                      .map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
-                      value:value,
-                      child:Text(value),
+                      value: value,
+                      child: Text(value),
                     );
                   }).toList(),
                 ),
@@ -189,8 +291,9 @@ class _ReportScreenState extends State<ReportScreen> {
                         onPressed:
                             _isRecording ? stopRecording : startRecording,
                         iconSize: 30,
-                        icon:
-                            Icon(_isRecording ? Icons.stop : Icons.mic_none_outlined),
+                        icon: Icon(_isRecording
+                            ? Icons.stop
+                            : Icons.mic_none_outlined),
                         color: Color(0xff5C4DB1),
                       ),
                       Text(
