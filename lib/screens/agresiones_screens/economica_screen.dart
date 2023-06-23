@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 
-class FisicaScreen extends StatefulWidget {
+class EconomicaScreen extends StatefulWidget {
+  const EconomicaScreen({super.key});
+
   @override
-  State<FisicaScreen> createState() => _FisicaScreenState();
+  State<EconomicaScreen> createState() => _EconomicaScreenState();
 }
 
-class _FisicaScreenState extends State<FisicaScreen> {
+class _EconomicaScreenState extends State<EconomicaScreen> {
   late PageController _pageController;
+
   int _currentPageIndex = 0;
-  List<String> _titles = [
-    'Title 1',
-    'Title 2',
-    'Title 3',
-    'Title 4',
-  ];
+  List<String> _titles = ['Title 1', 'Title 2', 'Title 3', 'Title 4'];
+
   List<String> _texts = [
     'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
     'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
@@ -48,64 +47,56 @@ class _FisicaScreenState extends State<FisicaScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
         backgroundColor: Colors.white,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new),
-          color: Color(0xff5C4DB1),
-          onPressed: () => Navigator.of(context).pop(),
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.white,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios_new),
+            color: Color(0xff5C4DB1),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
         ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
+        body: SingleChildScrollView(
+          child: Column(mainAxisSize: MainAxisSize.min, children: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: Image.asset('images/Logo.png'),
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                    'ProtegelApp',
-                    style: TextStyle(
+              child:
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                SizedBox(
+                  width: 50,
+                  height: 50,
+                  child: Image.asset('images/Logo.png'),
+                ),
+                SizedBox(width: 10),
+                Text(
+                  'ProtegelApp',
+                  style: TextStyle(
                       color: Color(0xff5C4DB1),
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1,
-                      wordSpacing: 2,
-                    ),
-                  ),
-                ],
-              ),
+                      wordSpacing: 2),
+                ),
+              ]),
             ),
             Container(
               width: double.infinity,
               child: Image.asset('images/Agresion.png'),
             ),
             Flexible(
-              fit: FlexFit.loose,
-              child: SingleChildScrollView(
-                child: Container(
-                  width: double.infinity,
-                  padding: EdgeInsets.only(top: 20, left: 15),
-                  decoration: BoxDecoration(
-                    color: Color(0xff5C4DB1),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(40),
-                      topRight: Radius.circular(40),
-                    ),
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
+                fit: FlexFit.loose,
+                child: SingleChildScrollView(
+                  child: Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.only(top: 20, left: 15),
+                    decoration: BoxDecoration(
+                        color: Color(0xff5C4DB1),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(40),
+                          topRight: Radius.circular(40),
+                        )),
+                    child: Column(mainAxisSize: MainAxisSize.min, children: [
                       SizedBox(height: 10),
                       Flexible(
                         fit: FlexFit.loose,
@@ -187,15 +178,12 @@ class _FisicaScreenState extends State<FisicaScreen> {
                           ),
                         ),
                       ),
-                    ],
+                    ]),
                   ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+                ))
+          ]),
+        )
+      );
   }
 
   List<Widget> _buildPageIndicator() {
