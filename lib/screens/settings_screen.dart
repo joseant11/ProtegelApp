@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:protegelapp/screens/settings_screens/aboutus_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   @override
@@ -231,12 +232,12 @@ class SettingsScreen extends StatelessWidget {
                           size: 20,
                         ),
                         onTap: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => ProfileScreen(),
-                          //   ),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AboutUsScreen(),
+                            ),
+                          );
                         },
                       ),
                       Divider(height: 40),

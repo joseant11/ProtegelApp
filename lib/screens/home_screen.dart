@@ -289,8 +289,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
+        SizedBox(height: 15),
         Container(
-          height: MediaQuery.of(context).size.height/9.5,
+          height: MediaQuery.of(context).size.height/11.5,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(40),
