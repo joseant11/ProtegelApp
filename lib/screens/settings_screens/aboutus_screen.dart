@@ -87,59 +87,61 @@ class AboutUsScreen extends StatelessWidget {
                 },
               ),
             ),
-Container(
-  margin: EdgeInsets.only(bottom: 10, top: 15),
-  height: MediaQuery.of(context).size.height * (MediaQuery.of(context).orientation == Orientation.portrait ? 0.23 : 0.43),
-  width: MediaQuery.of(context).size.width,
-  padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
-  child: Container(
-    decoration: BoxDecoration(
-      color: Color(0xff5C4DB1),
-      borderRadius: BorderRadius.only(
-        bottomLeft: Radius.circular(80.0),
-      ),
-      boxShadow: [
-        BoxShadow(
-          color: Color(0xff363f93).withOpacity(0.3),
-          offset: Offset(-10.0, 0.0),
-          blurRadius: 20.0,
-          spreadRadius: 4.0,
-        ),
-      ],
-    ),
-    padding: EdgeInsets.only(left: 32, top: 50.0, bottom: 50),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          "ProtegelApp",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 12,
-          ),
-        ),
-        const SizedBox(height: 2),
-        Text(
-          "Lorem Ipsum is simply dummy text.",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ],
-    ),
-  ),
-),
-
-
+            Container(
+              margin: EdgeInsets.only(bottom: 10, top: 15),
+              height: MediaQuery.of(context).size.height *
+                  (MediaQuery.of(context).orientation == Orientation.portrait
+                      ? 0.23
+                      : 0.43),
+              width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Color(0xff5C4DB1),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(80.0),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0xff363f93).withOpacity(0.3),
+                      offset: Offset(-10.0, 0.0),
+                      blurRadius: 20.0,
+                      spreadRadius: 4.0,
+                    ),
+                  ],
+                ),
+                padding: EdgeInsets.only(left: 32, top: 50.0, bottom: 50),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "ProtegelApp",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      "Lorem Ipsum is simply dummy text.",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget buildTeamMemberCard(BuildContext context, Map<String, dynamic> teamMember) {
+  Widget buildTeamMemberCard(
+      BuildContext context, Map<String, dynamic> teamMember) {
     final double width = MediaQuery.of(context).size.width;
 
     return Stack(

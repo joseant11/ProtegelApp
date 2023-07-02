@@ -18,9 +18,14 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   google_maps_flutter: ^2.2.6
+  flutter_polyline_points: ^1.0.0
+  flutter_svg: ^2.0.7
+  #location: ^4.4.0
+  geolocator: ^9.0.2
   http: ^0.13.6
-  chat_gpt_sdk: ^2.1.5
+  chat_gpt_sdk: ^2.2.2
   url_launcher: ^6.1.11
+  permission_handler: ^10.4.1
 
 dev_dependencies:
   flutter_test:
