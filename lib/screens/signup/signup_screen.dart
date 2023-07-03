@@ -12,18 +12,18 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+  final _formKey = GlobalKey<FormState>();
   bool passToggle = true;
 
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(SignUpController());
-    final _formKey = GlobalKey<FormState>();
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: SafeArea(
+        child: Form(
           key: _formKey,
           child: Column(
             children: [
@@ -122,6 +122,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     child: TextButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
+                          print(_formKey);
                           SignUpController.instance.registerUser(
                               controller.email.text.trim(),
                               controller.password.text.trim());
