@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:protegelapp/screens/forget_password/forget_password_otp.dart';
+import 'package:protegelapp/screens/forget_password/otp/otp_screen.dart';
 
 class ForgetPasswordPhoneScreen extends StatelessWidget {
   const ForgetPasswordPhoneScreen({Key? key}) : super(key: key);

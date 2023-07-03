@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:otp_text_field/otp_field.dart';
+import 'package:protegelapp/screens/forget_password/otp/otp_controller.dart';
+import 'package:protegelapp/screens/home_screen.dart';
 
 class OTPScreen extends StatelessWidget {
   const OTPScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var otp;
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
@@ -48,8 +51,9 @@ class OTPScreen extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 style: TextStyle(fontSize: 17),
                 textFieldAlignment: MainAxisAlignment.spaceAround,
-                onCompleted: (pin) {
-                  print("Completed: " + pin);
+                onCompleted: (code) {
+                  otp = code;
+                  OTPController.instance.verifyOTP(otp);
                 },
               ),
               SizedBox(height: 10),
@@ -62,10 +66,11 @@ class OTPScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                     child: InkWell(
                       onTap: () {
-                        // Navigator.push(context, MaterialPageRoute(
-                        //    builder: (context) => LoginScreen(),
-                        //  )
-                        // );
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomeScreen(),
+                            ));
                       },
                       child: Padding(
                         padding:

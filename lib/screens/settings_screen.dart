@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:protegelapp/screens/authentication_repository/authentication_repository.dart';
+import 'package:protegelapp/screens/welcome_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   @override
@@ -6,8 +8,8 @@ class SettingsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xff5C4DB1),
       appBar: AppBar(
-      elevation: 0,
-        backgroundColor: Color(0xff5C4DB1),      
+        elevation: 0,
+        backgroundColor: Color(0xff5C4DB1),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_new),
           onPressed: () => Navigator.of(context).pop(),
@@ -265,12 +267,13 @@ class SettingsScreen extends StatelessWidget {
                           size: 20,
                         ),
                         onTap: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => ProfileScreen(),
-                          //   ),
-                          // );
+                          // AuthenticationRepository.logout();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => WelcomeScreen(),
+                            ),
+                          );
                         },
                       ),
                     ],

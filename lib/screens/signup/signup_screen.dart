@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:protegelapp/screens/forget_password/otp/otp_screen.dart';
 import 'package:protegelapp/screens/login/login_screen.dart';
 import 'package:protegelapp/screens/signup/signup_controller.dart';
 
@@ -122,10 +123,12 @@ class _SignupScreenState extends State<SignupScreen> {
                     child: TextButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          print(_formKey);
                           SignUpController.instance.registerUser(
                               controller.email.text.trim(),
                               controller.password.text.trim());
+                          // SignUpController.instance.phoneAuthentication(
+                          //     controller.phoneNo.text.trim());
+                          // Get.to(() => const OTPScreen());
                         }
                       },
                       child: Padding(

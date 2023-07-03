@@ -66,6 +66,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '237344730188',
     projectId: 'protegelapp-a720c',
     storageBucket: 'protegelapp-a720c.appspot.com',
+    androidClientId: '237344730188-6tv4t3lovtht9e6v60f2s1vb0821d97k.apps.googleusercontent.com',
     iosClientId: '237344730188-54frkatlofd7dt2ral7902mulm0j93tl.apps.googleusercontent.com',
     iosBundleId: 'com.example.protegelapp',
   );
@@ -76,6 +77,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '237344730188',
     projectId: 'protegelapp-a720c',
     storageBucket: 'protegelapp-a720c.appspot.com',
+    androidClientId: '237344730188-6tv4t3lovtht9e6v60f2s1vb0821d97k.apps.googleusercontent.com',
     iosClientId: '237344730188-54frkatlofd7dt2ral7902mulm0j93tl.apps.googleusercontent.com',
     iosBundleId: 'com.example.protegelapp',
   );
