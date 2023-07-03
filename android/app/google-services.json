@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "237344730188",
+    "project_id": "protegelapp-a720c",
+    "storage_bucket": "protegelapp-a720c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:237344730188:android:f37dac7cfbc138974098e9",
+        "android_client_info": {
+          "package_name": "com.example.protegelapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "237344730188-hhe81odv8jj7u00lv8u2jh4uftl92ch5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9474Co3F9Y_XmDXsF9kxZhpcFx52UVEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "237344730188-b7mu0qmb1qqdh6n168r17vv0pi03304t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "237344730188-54frkatlofd7dt2ral7902mulm0j93tl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.protegelapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

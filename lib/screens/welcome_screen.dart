@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:protegelapp/screens/home_screen.dart';
-import 'package:protegelapp/screens/login_screen.dart';
+import 'package:protegelapp/screens/login/login_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +73,7 @@ class WelcomeScreen extends StatelessWidget {
                     Align(
                       alignment: Alignment.bottomLeft,
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width/1.32,
+                        width: MediaQuery.of(context).size.width / 1.32,
                         child: Image.asset('images/banner.png'),
                       ),
                     ),
