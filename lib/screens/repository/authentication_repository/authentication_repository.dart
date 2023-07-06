@@ -3,7 +3,7 @@ import 'dart:html';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:protegelapp/screens/authentication_repository/exceptions/signup_email_password_failure.dart';
+import 'package:protegelapp/screens/repository/authentication_repository/exceptions/t_exceptions.dart';
 import 'package:protegelapp/screens/forget_password/otp/otp_screen.dart';
 import 'package:protegelapp/screens/home_screen.dart';
 import 'package:protegelapp/screens/login/login_screen.dart';
@@ -43,10 +43,19 @@ class AuthenticationRepository extends GetxController {
           this.verificationId.value = verificationId;
         },
         verificationFailed: (e) {
-          if (e.code == 'invalida-phone-number') {
-            Get.snackbar('Error', 'The provided phone number is not valid.');
+          print(e);
+          if (e.code == 'invalid-phone-number') {
+            Get.snackbar('Error', 'The provided phone number is not valid.',
+                snackPosition: SnackPosition.TOP,
+                backgroundColor:
+                    Color.fromARGB(255, 223, 196, 196).withOpacity(0.1),
+                colorText: Colors.black);
           } else {
-            Get.snackbar('Error', 'Something went wrong. Try again.');
+            Get.snackbar('Error', 'Something went wrong. Try again.',
+                snackPosition: SnackPosition.TOP,
+                backgroundColor:
+                    Color.fromARGB(255, 223, 196, 196).withOpacity(0.1),
+                colorText: Colors.black);
           }
         });
   }
@@ -68,14 +77,14 @@ class AuthenticationRepository extends GetxController {
           ? Get.offAll(() => const HomeScreen())
           : Get.to(() => const OTPScreen());
     } on FirebaseAuthException catch (e) {
-      final ex = SignUpWithEmailPasswordFailure.code(e.code);
+      final ex = TExceptions.code(e.code);
       Get.snackbar('Error', 'FIREBASE AUTH EXCEPTION - ${ex.message}',
           snackPosition: SnackPosition.TOP,
           backgroundColor: Color.fromARGB(255, 223, 196, 196).withOpacity(0.1),
           colorText: Colors.black);
       throw ex;
     } catch (_) {
-      const ex = SignUpWithEmailPasswordFailure();
+      const ex = TExceptions();
       print('FIREBASE AUTH EXCEPTION: ${ex.message}');
       throw ex;
     }
@@ -91,7 +100,29 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
+  Future<void> loginAnonymously() async {
+    try {
+      await _auth.signInAnonymously();
+    } on FirebaseAuthException catch (e) {
+      // Handle login exception
+    } catch (_) {
+      // Handle generic exception
+    }
+  }
+
   Future<void> logout() async {
     await _auth.signOut();
+  }
+
+  Future<void> sendEmailVerification() async {
+    try {
+      await _auth.currentUser?.sendEmailVerification();
+    } on FirebaseAuthException catch (e) {
+      final ex = TExceptions.code(e.code);
+      throw ex.message;
+    } catch (_) {
+      const ex = TExceptions();
+      throw ex.message;
+    }
   }
 }

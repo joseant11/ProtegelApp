@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:protegelapp/screens/authentication_repository/authentication_repository.dart';
+import 'package:protegelapp/screens/repository/authentication_repository/authentication_repository.dart';
 import 'package:protegelapp/screens/home_screen.dart';
 
 class OTPController extends GetxController {

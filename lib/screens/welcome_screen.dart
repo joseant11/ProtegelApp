@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:protegelapp/screens/repository/authentication_repository/authentication_repository.dart';
 import 'package:protegelapp/screens/home_screen.dart';
 import 'package:protegelapp/screens/login/login_screen.dart';
 
@@ -22,11 +24,8 @@ class WelcomeScreen extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => HomeScreen(),
-                          ));
+                      AuthenticationRepository.instance.loginAnonymously();
+                      Get.to(() => const HomeScreen());
                     },
                     child: Text(
                       'Skip',

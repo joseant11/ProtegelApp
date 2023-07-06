@@ -33,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: SizedBox(
                     width: 150,
                     height: 150,
-                    child: Image.asset('images/Logo.png'),
+                    child: Image(image: AssetImage('images/Logo.png')),
                   ),
                 ),
                 Text(
@@ -226,9 +226,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             LoginController.instance.loginUser(
                                 controller.email.text.trim(),
                                 controller.password.text.trim());
-                            // SignUpController.instance.phoneAuthentication(
-                            //     controller.phoneNo.text.trim());
-                            // Get.to(() => const OTPScreen());
                           }
                         },
                         child: Padding(
@@ -249,33 +246,35 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Text('OR'),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    SizedBox(
-                        width: double.infinity,
-                        child: OutlinedButton.icon(
-                            onPressed: () {},
-                            icon: Image(
-                              image: AssetImage('images/google.png'),
-                              width: 20.0,
-                            ),
-                            label: Text('Sign In with Google'))),
-                    SizedBox(
-                        width: double.infinity,
-                        child: OutlinedButton.icon(
-                            onPressed: () {},
-                            icon: Image(
-                              image: AssetImage('images/facebook.png'),
-                              width: 20.0,
-                            ),
-                            label: Text('Sign In with Facebook')))
-                  ],
-                ),
+                // Column(
+                //   crossAxisAlignment: CrossAxisAlignment.center,
+                //   children: [
+                //     const Text('OR'),
+                //     const SizedBox(
+                //       height: 10,
+                //     ),
+                //     SizedBox(
+                //         width: double.infinity,
+                //         child: OutlinedButton.icon(
+                //             onPressed: () {
+                //               LoginController.instance.signInWithGoogle();
+                //             },
+                //             icon: Image(
+                //               image: AssetImage('images/google.png'),
+                //               width: 20.0,
+                //             ),
+                //             label: Text('Sign In with Google'))),
+                //     SizedBox(
+                //         width: double.infinity,
+                //         child: OutlinedButton.icon(
+                //             onPressed: () {},
+                //             icon: Image(
+                //               image: AssetImage('images/facebook.png'),
+                //               width: 20.0,
+                //             ),
+                //             label: Text('Sign In with Facebook')))
+                //   ],
+                // ),
                 SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

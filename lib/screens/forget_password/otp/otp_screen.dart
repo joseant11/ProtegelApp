@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:protegelapp/screens/forget_password/otp/otp_controller.dart';
 import 'package:protegelapp/screens/home_screen.dart';
@@ -8,6 +9,8 @@ class OTPScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
+    var otpController = Get.put(OTPController());
     var otp;
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -36,7 +39,7 @@ class OTPScreen extends StatelessWidget {
               SizedBox(height: 30),
               Center(
                 child: Text(
-                  "Enter the verification code sent at youremail@example.com",
+                  "Enter the verification code sent at",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.normal,
@@ -53,6 +56,7 @@ class OTPScreen extends StatelessWidget {
                 textFieldAlignment: MainAxisAlignment.spaceAround,
                 onCompleted: (code) {
                   otp = code;
+                  print(otp);
                   OTPController.instance.verifyOTP(otp);
                 },
               ),

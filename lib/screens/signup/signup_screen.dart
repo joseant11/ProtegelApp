@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:protegelapp/screens/forget_password/otp/otp_screen.dart';
 import 'package:protegelapp/screens/login/login_screen.dart';
+import 'package:protegelapp/screens/repository/authentication_repository/models/user_model.dart';
 import 'package:protegelapp/screens/signup/signup_controller.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -123,12 +124,12 @@ class _SignupScreenState extends State<SignupScreen> {
                     child: TextButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          SignUpController.instance.registerUser(
-                              controller.email.text.trim(),
-                              controller.password.text.trim());
-                          // SignUpController.instance.phoneAuthentication(
-                          //     controller.phoneNo.text.trim());
-                          // Get.to(() => const OTPScreen());
+                          final user = UserModel(
+                              fullName: controller.fullName.text.trim(),
+                              email: controller.email.text.trim(),
+                              phoneNo: controller.phoneNo.text.trim(),
+                              password: controller.password.text.trim());
+                          SignUpController.instance.createUser(user);
                         }
                       },
                       child: Padding(
@@ -149,33 +150,33 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                 ),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Text('OR'),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  SizedBox(
-                      width: double.infinity,
-                      child: OutlinedButton.icon(
-                          onPressed: () {},
-                          icon: Image(
-                            image: AssetImage('images/google.png'),
-                            width: 20.0,
-                          ),
-                          label: Text('Sign In with Google'.toUpperCase()))),
-                  SizedBox(
-                      width: double.infinity,
-                      child: OutlinedButton.icon(
-                          onPressed: () {},
-                          icon: Image(
-                            image: AssetImage('images/facebook.png'),
-                            width: 20.0,
-                          ),
-                          label: Text('Sign In with Facebook'.toUpperCase())))
-                ],
-              ),
+              // Column(
+              //   crossAxisAlignment: CrossAxisAlignment.center,
+              //   children: [
+              //     const Text('OR'),
+              //     const SizedBox(
+              //       height: 10,
+              //     ),
+              //     SizedBox(
+              //         width: double.infinity,
+              //         child: OutlinedButton.icon(
+              //             onPressed: () {},
+              //             icon: Image(
+              //               image: AssetImage('images/google.png'),
+              //               width: 20.0,
+              //             ),
+              //             label: Text('Sign In with Google'.toUpperCase()))),
+              //     SizedBox(
+              //         width: double.infinity,
+              //         child: OutlinedButton.icon(
+              //             onPressed: () {},
+              //             icon: Image(
+              //               image: AssetImage('images/facebook.png'),
+              //               width: 20.0,
+              //             ),
+              //             label: Text('Sign In with Facebook'.toUpperCase())))
+              //   ],
+              // ),
               SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

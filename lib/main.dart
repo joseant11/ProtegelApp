@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'package:protegelapp/firebase_options.dart';
-import 'package:protegelapp/screens/authentication_repository/authentication_repository.dart';
+import 'package:protegelapp/screens/repository/authentication_repository/authentication_repository.dart';
 import 'package:protegelapp/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
