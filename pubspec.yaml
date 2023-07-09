@@ -20,12 +20,14 @@ dependencies:
   google_maps_flutter: ^2.2.6
   flutter_polyline_points: ^1.0.0
   flutter_svg: ^2.0.7
-  #location: ^4.4.0
   geolocator: ^9.0.2
   http: ^0.13.6
   chat_gpt_sdk: ^2.2.2
   url_launcher: ^6.1.11
   permission_handler: ^10.4.1
+  camera: ^0.10.5+2
+  image_picker: ^1.0.0
+  google_ml_kit: ^0.15.0
 
 dev_dependencies:
   flutter_test:

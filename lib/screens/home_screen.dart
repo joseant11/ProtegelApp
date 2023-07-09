@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:protegelapp/screens/agresiones_screens/capturar_data_screen.dart';
 import 'package:protegelapp/screens/emergency_screen.dart';
 import 'package:protegelapp/screens/settings_screen.dart';
 import 'package:protegelapp/screens/empoderate_screen.dart';
@@ -129,7 +130,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ),
                               ],
-                            )),
+                            )
+                          ),
                       ),
                       InkWell(
                         onTap: () {
@@ -205,16 +207,16 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           );
                           break;
+                        case 1:
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CedulaCaptureScreen(),
+                            ),
+                          );
+                          break;
                          }
                       },
-                    //     case 1:
-                    //       Navigator.push(
-                    //         context,
-                    //         MaterialPageRoute(
-                    //           builder: (context) => SexualScreen(),
-                    //         ),
-                    //       );
-                    //       break;
                     //     case 2:
                     //       Navigator.push(
                     //         context,
