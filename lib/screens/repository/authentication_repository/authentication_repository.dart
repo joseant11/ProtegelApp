@@ -1,12 +1,9 @@
-import 'dart:html';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:protegelapp/screens/repository/authentication_repository/exceptions/t_exceptions.dart';
 import 'package:protegelapp/screens/forget_password/otp/otp_screen.dart';
 import 'package:protegelapp/screens/home_screen.dart';
-import 'package:protegelapp/screens/login/login_screen.dart';
 import 'package:protegelapp/screens/welcome_screen.dart';
 
 class AuthenticationRepository extends GetxController {

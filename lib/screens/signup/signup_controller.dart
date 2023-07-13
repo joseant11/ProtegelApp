@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:protegelapp/screens/forget_password/otp/otp_screen.dart';
 import 'package:protegelapp/screens/home_screen.dart';
 import 'package:protegelapp/screens/repository/authentication_repository/authentication_repository.dart';
 import 'package:protegelapp/screens/repository/authentication_repository/models/user_model.dart';
