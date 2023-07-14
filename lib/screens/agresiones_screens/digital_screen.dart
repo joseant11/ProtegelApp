@@ -11,13 +11,18 @@ class _DigitalScreenState extends State<DigitalScreen> {
   late PageController _pageController;
 
   int _currentPageIndex = 0;
-  List<String> _titles = ['Title 1', 'Title 2', 'Title 3', 'Title 4'];
+  List<String> _titles = [
+    'Bloquea y reporta',
+    'No respondas ni alimentes la\nagresión',
+    'Cuida tu bienestar mental y\nemocional',
+    'Busca Ayuda Psicologica'
+  ];
 
   List<String> _texts = [
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
+    'Si estás siendo objeto de agresión por vía digital, lo primero que debes hacer es bloquear a la persona o cuenta que está llevando a cabo la agresión. Esto evitará que te sigan acosando o enviando mensajes ofensivos. Además, reporta la situación a la plataforma o red social correspondiente para que tomen las medidas necesarias.',
+    'Es importante resistir la tentación de responder de manera agresiva o emocional a los ataques. No alimentes la agresión, ya que esto puede empeorar la situación y prolongar el conflicto. Mantén la calma y evita entrar en discusiones o interacciones negativas.',
+    'La agresión por vía digital puede tener un impacto negativo en tu salud mental y emocional. Prioriza tu bienestar y busca actividades que te ayuden a relajarte, como hacer ejercicio, practicar técnicas de respiración o buscar terapia profesional. No tengas miedo de pedir ayuda si lo necesitas.',
+    'El Ministerio de la Mujer ofrece lineas de apoyo Psicologico gratuitas,\ncontacte al siguiente numero (809-685-3755 ext. 4511)\no escriba al siguiente correo (prevencionyatencion@mujer.gob.do)',
   ];
 
   @override
@@ -182,8 +187,7 @@ class _DigitalScreenState extends State<DigitalScreen> {
                   ),
                 ))
           ]),
-        )
-      );
+        ));
   }
 
   List<Widget> _buildPageIndicator() {

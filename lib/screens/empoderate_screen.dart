@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class ChatGPT {
   final String apiKey;
   String prompt;

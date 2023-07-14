@@ -9,16 +9,16 @@ class _FisicaScreenState extends State<FisicaScreen> {
   late PageController _pageController;
   int _currentPageIndex = 0;
   List<String> _titles = [
-    'Title 1',
-    'Title 2',
-    'Title 3',
-    'Title 4',
+    'Prioriza tu seguridad',
+    'Documenta y guarda evidencias',
+    'Busca apoyo emocional',
+    'Busca Ayuda Psicologica',
   ];
   List<String> _texts = [
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
+    'En caso de una agresión física, lo más importante es priorizar tu seguridad. Busca un lugar seguro y alejado de la persona agresora. Si es necesario, llama a la policía o busca ayuda de personas cercanas para garantizar tu protección inmediata.',
+    'Si has sido víctima de agresión física, documenta y guarda todas las evidencias posibles. Toma fotografías de tus lesiones, conserva copias de informes médicos y cualquier otro tipo de evidencia relacionada con el incidente. Estas pruebas pueden ser útiles para respaldar tu caso en una denuncia o investigación posterior.',
+    'Después de una agresión física, es normal sentir emociones intensas como miedo, ira o tristeza. Busca apoyo emocional de personas de confianza, como amigos, familiares o profesionales de la salud mental. Compartir tus sentimientos y experiencias puede ayudarte a procesar lo sucedido y recibir el apoyo necesario para tu bienestar emocional.',
+    'El Ministerio de la Mujer ofrece lineas de apoyo Psicologico gratuitas,\ncontacte al siguiente numero (809-685-3755 ext. 4511)\no escriba al siguiente correo (prevencionyatencion@mujer.gob.do)',
   ];
 
   @override

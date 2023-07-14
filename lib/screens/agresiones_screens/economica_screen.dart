@@ -11,13 +11,13 @@ class _EconomicaScreenState extends State<EconomicaScreen> {
   late PageController _pageController;
 
   int _currentPageIndex = 0;
-  List<String> _titles = ['Title 1', 'Title 2', 'Title 3', 'Title 4'];
+  List<String> _titles = ['Busca asesoramiento financiero', 'Documenta las pruebas', 'Desarrolla una red de apoyo', 'Busca Ayuda Psicologica'];
 
   List<String> _texts = [
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
+    'Si estás experimentando agresión económica, busca el apoyo de un asesor financiero o de un profesional especializado en violencia económica. Ellos pueden ayudarte a evaluar tu situación financiera, proporcionar orientación sobre cómo proteger tus activos y desarrollar un plan financiero seguro.',
+    'Mantén un registro detallado de cualquier evidencia relacionada con la agresión económica, como registros financieros, transacciones, correos electrónicos o mensajes de texto. Esta documentación puede respaldar tu caso en caso de necesitar presentar pruebas o denunciar el abuso económico.',
+    'No enfrentes la agresión económica sola. Busca el apoyo de familiares, amigos y organizaciones especializadas en violencia de género. Comparte tu situación con personas de confianza que puedan brindarte apoyo emocional, asesoramiento financiero y ayudarte a encontrar recursos disponibles en tu comunidad.',
+    'El Ministerio de la Mujer ofrece lineas de apoyo Psicologico gratuitas,\ncontacte al siguiente numero (809-685-3755 ext. 4511)\no escriba al siguiente correo (prevencionyatencion@mujer.gob.do)',
   ];
 
   @override

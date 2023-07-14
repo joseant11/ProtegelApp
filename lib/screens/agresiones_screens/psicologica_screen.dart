@@ -11,13 +11,13 @@ class _PsicologicaScreenState extends State<PsicologicaScreen> {
   late PageController _pageController;
 
   int _currentPageIndex = 0;
-  List<String> _titles = ['Title 1', 'Title 2', 'Title 3', 'Title 4'];
+  List<String> _titles = ['Reconoce y valora tu autoestima', 'Establece límites saludables', 'Mantén registros de los\nincidentes', 'Busca Ayuda Psicologica'];
 
   List<String> _texts = [
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
+    'Mantén una buena autoestima y reconoce tu valor como persona. Recuerda que las palabras y acciones de alguien que te agrede psicológicamente no definen tu valía. Mantén una imagen positiva de ti misma y no permitas que te menosprecien.',
+    'Establece límites claros con la persona que te agrede psicológicamente. Comunica de manera firme y asertiva tus límites emocionales y establece consecuencias claras si se cruzan esos límites. Asegúrate de mantenerte firme en tu posición y no permitas que te manipulen o te hagan sentir inferior.',
+    'Lleva un registro detallado de los incidentes de agresión psicológica, anotando fechas, descripciones y cualquier otro detalle relevante. Estos registros pueden ser útiles si decides tomar acciones legales o buscar ayuda profesional en el futuro. Además, pueden servir como evidencia de la agresión que estás sufriendo.',
+    'El Ministerio de la Mujer ofrece lineas de apoyo Psicologico gratuitas,\ncontacte al siguiente numero (809-685-3755 ext. 4511)\no escriba al siguiente correo (prevencionyatencion@mujer.gob.do)',
   ];
 
   @override

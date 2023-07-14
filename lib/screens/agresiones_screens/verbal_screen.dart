@@ -11,13 +11,18 @@ class _VerbalScreenState extends State<VerbalScreen> {
   late PageController _pageController;
 
   int _currentPageIndex = 0;
-  List<String> _titles = ['Title 1', 'Title 2', 'Title 3', 'Title 4'];
+  List<String> _titles = [
+    'Alejarse de la situación',
+    'No te culpes a ti misma',
+    'Mantén la calma',
+    'Busca Ayuda Psicologica'
+  ];
 
   List<String> _texts = [
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
+    'Si te encuentras en una situación de agresión verbal y no te sientes segura, es importante alejarte del agresor. Busca un lugar seguro donde puedas estar rodeada de personas de confianza o en un entorno público.',
+    'Recuerda que la responsabilidad de la agresión verbal recae en el agresor, no en ti. No te culpes a ti misma ni trates de justificar su comportamiento. Nadie merece ser maltratado verbalmente, y no tienes que tolerarlo.',
+    'Enfrentar una agresión verbal puede ser desafiante, pero es importante mantener la calma y evitar responder con más agresión. Respira profundamente y trata de mantener la compostura para evitar empeorar la situación.',
+    'El Ministerio de la Mujer ofrece lineas de apoyo Psicologico gratuitas,\ncontacte al siguiente numero (809-685-3755 ext. 4511)\no escriba al siguiente correo (prevencionyatencion@mujer.gob.do)',
   ];
 
   @override
@@ -182,8 +187,7 @@ class _VerbalScreenState extends State<VerbalScreen> {
                   ),
                 ))
           ]),
-        )
-      );
+        ));
   }
 
   List<Widget> _buildPageIndicator() {

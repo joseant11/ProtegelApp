@@ -11,13 +11,13 @@ class _SexualScreenState extends State<SexualScreen> {
   late PageController _pageController;
 
   int _currentPageIndex = 0;
-  List<String> _titles = ['Title 1', 'Title 2', 'Title 3', 'Title 4'];
+  List<String> _titles = ['Prioriza tu autocuidado', 'Preserva cualquier evidencia', 'Busca atención médica y apoyo emocional', 'Busca Ayuda Psicologica'];
 
   List<String> _texts = [
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
-    'Lorem ipsum dolor sit\namet, consectetur adipiscing elit.\nVestibulum consectetur erat\n non lectus hendrerit.',
+    'La recuperación de una agresión sexual puede llevar tiempo y es importante cuidar de ti misma durante este proceso. Prioriza tu salud mental, emocional y física. Busca actividades que te brinden bienestar, como practicar ejercicio, meditar, conectarte con la naturaleza o participar en actividades creativas. Recuerda que tu bienestar es primordial y tómate el tiempo necesario para sanar y reconstruirte.',
+    'Si te encuentras en un entorno seguro, intenta preservar cualquier evidencia física que pueda respaldar tu caso, como la ropa que llevabas puesta durante la agresión. Evita lavar, cambiar o alterar cualquier evidencia hasta que puedas entregarla a las autoridades o profesionales especializados en recolección de pruebas.',
+    'Después de una agresión sexual, es importante buscar atención médica lo antes posible. Acude a un centro de salud para recibir atención médica, evaluación de lesiones y pruebas forenses si es necesario. Además, busca apoyo emocional de personas de confianza o servicios especializados en violencia sexual para recibir apoyo y orientación en este proceso.',
+    'El Ministerio de la Mujer ofrece lineas de apoyo Psicologico gratuitas,\ncontacte al siguiente numero (809-685-3755 ext. 4511)\no escriba al siguiente correo (prevencionyatencion@mujer.gob.do)',
   ];
 
   @override
