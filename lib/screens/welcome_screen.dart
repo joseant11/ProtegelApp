@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:protegelapp/screens/repository/authentication_repository/authentication_repository.dart';
 import 'package:protegelapp/screens/home_screen.dart';
-import 'package:protegelapp/screens/login_screen.dart';
+import 'package:protegelapp/screens/login/login_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,11 +24,8 @@ class WelcomeScreen extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => HomeScreen(),
-                          ));
+                      AuthenticationRepository.instance.loginAnonymously();
+                      Get.to(() => const HomeScreen());
                     },
                     child: Text(
                       'Skip',
@@ -71,7 +72,7 @@ class WelcomeScreen extends StatelessWidget {
                     Align(
                       alignment: Alignment.bottomLeft,
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width/1.32,
+                        width: MediaQuery.of(context).size.width / 1.32,
                         child: Image.asset('images/banner.png'),
                       ),
                     ),
