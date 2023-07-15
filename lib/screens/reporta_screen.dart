@@ -4,8 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
+import 'package:permission_handler/permission_handler.dart' as ph;
 import 'package:file_picker/file_picker.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
+import 'package:intl/intl.dart';
+import 'package:protegelapp/screens/mapscreen.dart';
 
 class ReportScreen extends StatefulWidget {
   @override
@@ -23,6 +27,8 @@ class _ReportScreenState extends State<ReportScreen> {
   String? _emailError;
   String? _phoneError;
   String _incidentDescription = '';
+  DateTime? _selectedDateTime;
+  LatLng? _selectedLocation;
 
   bool validate() {
     bool isValid = true;
@@ -104,12 +110,11 @@ class _ReportScreenState extends State<ReportScreen> {
   }
 
   Future startRecording() async {
-    PermissionStatus status = await Permission.microphone.request();
+    ph.PermissionStatus status = await ph.Permission.microphone.request();
 
-    if (status != PermissionStatus.granted) {
+    if (status != ph.PermissionStatus.granted) {
       return;
     }
-
     Directory tempDir = await getTemporaryDirectory();
     String path = '${tempDir.path}/audio.aac';
 
@@ -147,6 +152,7 @@ class _ReportScreenState extends State<ReportScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final format = DateFormat("yyyy-MM-dd HH:mm");
     return Scaffold(
       appBar: AppBar(
         title: Text('Reportes'),
@@ -179,19 +185,6 @@ class _ReportScreenState extends State<ReportScreen> {
             SizedBox(height: 16.0),
             TextField(
               decoration: InputDecoration(
-                labelText: 'Cédula',
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0xff5C4DB1)),
-                ),
-                focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xff5C4DB1))),
-                errorText: _idError,
-              ),
-              onChanged: (value) => setState(() => _userId = value),
-            ),
-            SizedBox(height: 16.0),
-            TextField(
-              decoration: InputDecoration(
                 labelText: 'Correo electrónico',
                 border: OutlineInputBorder(
                   borderSide: BorderSide(color: Color(0xff5C4DB1)),
@@ -214,21 +207,6 @@ class _ReportScreenState extends State<ReportScreen> {
                 errorText: _phoneError,
               ),
               onChanged: (value) => setState(() => _userPhone = value),
-            ),
-            SizedBox(height: 16.0),
-            TextField(
-              maxLines: 5,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0xff5C4DB1)),
-                ),
-                labelText: 'Descripción del incidente',
-                labelStyle: TextStyle(color: Color(0xff5C4DB1), fontSize: 18.0),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0xff5C4DB1)),
-                ),
-              ),
-              onChanged: (value) => _incidentDescription = value,
             ),
             SizedBox(height: 16.0),
             InputDecorator(
@@ -258,6 +236,62 @@ class _ReportScreenState extends State<ReportScreen> {
                 ),
               ),
             ),
+            SizedBox(height: 16.0),
+            TextField(
+              maxLines: 5,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xff5C4DB1)),
+                ),
+                labelText: 'Descripción del incidente',
+                labelStyle: TextStyle(color: Color(0xff5C4DB1), fontSize: 18.0),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xff5C4DB1)),
+                ),
+              ),
+              onChanged: (value) => _incidentDescription = value,
+            ),
+            // Selector de fecha y hora
+
+            DateTimeField(
+              format: format,
+              decoration: InputDecoration(labelText: 'Fecha y hora'),
+              onChanged: (value) => setState(() => _selectedDateTime = value),
+              onShowPicker: (context, currentValue) async {
+                final date = await showDatePicker(
+                  context: context,
+                  firstDate: DateTime(1900),
+                  initialDate: currentValue ?? DateTime.now(),
+                  lastDate: DateTime(2100),
+                );
+                if (date != null) {
+                  final time = await showTimePicker(
+                    context: context,
+                    initialTime:
+                        TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
+                  );
+                  return DateTimeField.combine(date, time);
+                } else {
+                  return currentValue;
+                }
+              },
+            ),
+            SizedBox(height: 16.0),
+
+// Selector de ubicación
+           ElevatedButton(
+  onPressed: () async {
+    final result = await Navigator.of(context).push<LatLng>(
+      MaterialPageRoute(
+        builder: (context) => MapScreen(),
+      ),
+    );
+    if (result != null) {
+      setState(() => _selectedLocation = result);
+    }
+  },
+  child: Text('Seleccionar ubicación'),
+),
             SizedBox(height: 16.0),
             Container(
               decoration: BoxDecoration(
